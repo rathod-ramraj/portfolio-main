@@ -1108,7 +1108,7 @@ export function Portfolio() {
                 Full Stack Developer <span aria-hidden="true">•</span> React <span aria-hidden="true">•</span> Next.js <span aria-hidden="true">•</span> Node.js
               </p>
             </div>
-            <div className="pf-hero-visual" data-reveal="true">
+            <div className="pf-hero-visual">
               <div className="pf-portrait-readout" style={{ position: "static", textAlign: "right" }}>
                 <span>CORE ONLINE</span>
                 <span>NIT JALANDHAR</span>

@@ -418,10 +418,10 @@
   position: absolute; top: 8%; left: 48%;
 }
 .pf-orbit-two { border-style: dashed; inset: 27%; animation-duration: 14s; animation-direction: reverse; }
-.pf-portrait-readout { font-family: var(--font-mono); letter-spacing: 0.12em; text-align: right; text-transform: uppercase; display: grid; gap: 0.35rem; font-size: 0.68rem; position: absolute; bottom: 1rem; right: 1rem; }
+.pf-portrait-readout { font-family: var(--font-mono); letter-spacing: 0.12em; text-align: right; text-transform: uppercase; display: grid; gap: 0.35rem; font-size: 0.68rem; position: absolute; bottom: 1rem; right: 1rem; color: #f4efe8ad; }
 
 /* ── MARQUEE ── */
-.pf-marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #ffffff09; width: calc(100% + 2rem); margin-left: -1rem; overflow: hidden; }
+.pf-marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #ffffff09; width: calc(100% + 2rem); margin-left: -1rem; overflow: hidden; margin-bottom: 2.5rem; }
 .pf-marquee-track { width: max-content; display: flex; animation: pf-marquee 28s linear infinite; }
 .pf-marquee span { color: #f4efe8cc; font-family: var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; display: inline-flex; align-items: center; gap: 1rem; padding: 0.9rem 1.4rem; font-size: 0.78rem; }
 .pf-marquee span::after { content: ""; background: var(--red); width: 6px; height: 6px; box-shadow: 0 0 18px var(--red); border-radius: 50%; }
@@ -1259,7 +1259,7 @@
 .pf-repo-card-desc {
   color: #f4efe8a3; margin: 0; flex: 1;
   font-size: 0.85rem; line-height: 1.55;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
 .pf-repo-card-topics { display: flex; flex-wrap: wrap; gap: 0.35rem; min-height: 1.2rem; }
 .pf-repo-topic {
