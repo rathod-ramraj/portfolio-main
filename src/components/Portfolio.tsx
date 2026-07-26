@@ -1235,7 +1235,7 @@ export function Portfolio() {
                 </svg>
                 <span>Codeforces</span>
               </a>
-              <a href="mailto:diamondstar2200@gmail.com" target="_blank" rel="noreferrer" data-cursor-link>
+              <a href="mailto:rathodramraj.dev@gmail.com" target="_blank" rel="noreferrer" data-cursor-link>
                 <MessageCircle size={18} aria-hidden="true" style={{ color: "#EA4335" }} />
                 <span>Email</span>
               </a>
@@ -1252,7 +1252,7 @@ export function Portfolio() {
                 <span>X</span>
               </a>
             </div>
-            <p className="pf-contact-username">diamondstar2200@gmail.com • Discord: rathod_ramraj</p>
+            <p className="pf-contact-username">rathodramraj.dev@gmail.com • Discord: rathod_ramraj</p>
           </div>
         </section>
       </div>
