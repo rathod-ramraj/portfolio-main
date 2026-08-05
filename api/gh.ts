@@ -15,7 +15,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const headers: Record<string, string> = {
     Accept: (req.headers["accept"] as string) || "application/vnd.github+json",
-    "User-Agent": "rishab-portfolio-proxy",
+    "User-Agent": "Ramraj-portfolio-proxy",
     "X-GitHub-Api-Version": "2022-11-28",
   };
   if (process.env.GITHUB_TOKEN) headers["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;

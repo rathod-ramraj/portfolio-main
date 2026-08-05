@@ -43,7 +43,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "User-Agent": "rishab-portfolio-proxy",
+        "User-Agent": "Ramraj-portfolio-proxy",
         "Referer": `https://leetcode.com/u/${username}`,
       },
       body: JSON.stringify({ query: QUERY, variables: { username } }),
