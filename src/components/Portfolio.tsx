@@ -911,6 +911,110 @@ function LeetCodeCard() {
   );
 }
 
+type OssPr = {
+  id: number;
+  title: string;
+  repo: string;
+  url: string;
+  number: number;
+  state: "merged" | "open" | "closed";
+  created_at: string;
+};
+
+function OssSection() {
+  const [prs, setPrs] = useState<OssPr[]>([
+    {
+      id: 4045,
+      title: "Add Rathod Ramraj to developer portfolios",
+      repo: "emmabostian/developer-portfolios",
+      url: "https://github.com/emmabostian/developer-portfolios/pull/4045",
+      number: 4045,
+      state: "merged",
+      created_at: "2026-08-03T18:06:35Z",
+    },
+    {
+      id: 2,
+      title: "Add eco scanner, ARIMA ML forecasting service, and dashboard prediction UI",
+      repo: "Krishna27Singh/ecosangam_trae",
+      url: "https://github.com/Krishna27Singh/ecosangam_trae/pull/2",
+      number: 2,
+      state: "open",
+      created_at: "2026-04-30T11:33:01Z",
+    },
+    {
+      id: 1,
+      title: "improved AI tip UI for user",
+      repo: "Krishna27Singh/ecosangam_trae",
+      url: "https://github.com/Krishna27Singh/ecosangam_trae/pull/1",
+      number: 1,
+      state: "merged",
+      created_at: "2026-04-29T09:56:32Z",
+    },
+  ]);
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/gh/search/issues?q=type:pr+author:rathod-ramraj+-user:rathod-ramraj")
+      .then((res) => res.json())
+      .then((data) => {
+        if (!active || !data.items || !Array.isArray(data.items)) return;
+        const fetched: OssPr[] = data.items.map((item: any) => {
+          const repoMatch = item.repository_url?.match(/repos\/(.+)$/);
+          const repoName = repoMatch ? repoMatch[1] : item.html_url.split("/")[3] + "/" + item.html_url.split("/")[4];
+          const isMerged = !!item.pull_request?.merged_at;
+          const prState: "merged" | "open" | "closed" = isMerged ? "merged" : item.state === "open" ? "open" : "closed";
+          return {
+            id: item.id,
+            title: item.title,
+            repo: repoName,
+            url: item.html_url,
+            number: item.number,
+            state: prState,
+            created_at: item.created_at,
+          };
+        });
+        if (fetched.length > 0) setPrs(fetched);
+      })
+      .catch(() => {});
+    return () => { active = false; };
+  }, []);
+
+  return (
+    <div className="pf-oss-grid">
+      {prs.map((pr) => (
+        <a
+          key={pr.id || pr.url}
+          href={pr.url}
+          target="_blank"
+          rel="noreferrer"
+          className="pf-oss-card"
+          data-reveal="true"
+          data-cursor-link
+        >
+          <div className="pf-oss-header">
+            <span className="pf-oss-project">{pr.repo}</span>
+            <span
+              className="pf-oss-badge"
+              style={{
+                background: pr.state === "merged" ? "#8e7dff22" : pr.state === "open" ? "#39e8ff22" : "#ffffff14",
+                borderColor: pr.state === "merged" ? "#8e7dff61" : pr.state === "open" ? "#39e8ff61" : "#ffffff33",
+                color: pr.state === "merged" ? "var(--violet)" : pr.state === "open" ? "var(--cyan)" : "var(--muted)",
+              }}
+            >
+              {pr.state.toUpperCase()}
+            </span>
+          </div>
+          <p className="pf-oss-desc">{pr.title}</p>
+          <div className="pf-oss-footer">
+            <span className="pf-oss-pr">PR #{pr.number}</span>
+            <ExternalLink size={14} aria-hidden="true" />
+          </div>
+        </a>
+      ))}
+    </div>
+  );
+}
+
 export function Portfolio() {
   usePageMeta({
     title: "Rathod Ramraj — Full Stack Developer • React • Next.js • Node.js",
@@ -1179,13 +1283,7 @@ export function Portfolio() {
           <div className="pf-section-shell">
             <p className="pf-chapter-label" data-reveal="true">05 / Open Source</p>
             <h2 data-reveal="true">CONTRIBUTING TO THE COMMONS.</h2>
-            <div className="pf-oss-grid" style={{ gridTemplateColumns: "1fr" }}>
-              <div className="pf-oss-card" data-reveal="true" style={{ textAlign: "center", padding: "3rem 1.5rem" }}>
-                <p className="pf-oss-desc" style={{ fontSize: "1.2rem", color: "var(--text-secondary)" }}>
-                  Currently contributing to frontend development and preparing open-source contributions.
-                </p>
-              </div>
-            </div>
+            <OssSection />
           </div>
         </section>
 
