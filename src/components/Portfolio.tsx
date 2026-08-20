@@ -74,6 +74,17 @@ const JOURNEY: JourneyEntry[] = [
   },
   {
     kind: "work",
+    logo: "/educations/CDAC-Cyber Gyan.jpeg",
+    title: "Cyber Security Intern",
+    org: "Centre for Development of Advanced Computing (C-DAC)",
+    url: "https://www.cdac.in/",
+    period: "Jun 2025 — Jul 2025",
+    status: "completed",
+    detail: "Completed a virtual internship and online training program on Ethical Hacking and Penetration Testing under the Cyber Gyan Project at C-DAC, Noida. Gained practical exposure to cybersecurity concepts, ethical hacking, and penetration testing techniques.",
+    tags: ["Cybersecurity", "Ethical Hacking", "Penetration Testing", "C-DAC"],
+  },
+  {
+    kind: "work",
     logo: "/educations/sqc_nitj_logo.jpeg",
     title: "Core Member",
     org: "Super Quant Coders",
@@ -1247,7 +1258,7 @@ export function Portfolio() {
               <MetricCard value="11" label="Projects Built" delay={0} />
               <MetricCard value="2028" label="NITJ B.Tech IT Batch" delay={100} />
               <MetricCard value="15+" label="Public GitHub Repos" delay={200} />
-              <MetricCard value="1" label="Developer Internship" delay={300} />
+              <MetricCard value="2" label="Technical Internships" delay={300} />
             </div>
           </div>
         </section>
