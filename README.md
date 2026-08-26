@@ -49,6 +49,9 @@ vite.config.ts               # also hosts the dev-time GitHub proxy
 
 ## Notes
 
-- `GITHUB_TOKEN` is required (or you'll hit unauth'd GitHub rate limits). It is read server-side only.
-- Domain SEO is configured against `https://rathodram.vercel.app` — update `src/lib/seo.ts` and `index.html` if you fork.
+- Domain SEO is configured against `https://rathodram.vercel.app`.
 
+## License
+
+Copyright © 2024–2026 Rathod Ramraj. All Rights Reserved.  
+This repository and codebase are proprietary. Unauthorized copying, modification, or redistribution of any code, design, or assets is strictly prohibited. See [LICENSE](./LICENSE) for details.
