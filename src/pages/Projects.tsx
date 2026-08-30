@@ -44,7 +44,7 @@ function RepoCard({ repo, onHover }: { repo: Repo; onHover: (img: string | null,
       <div className="pf-repo-card-foot">
         <span className="pf-repo-stat">
           <span className="pf-repo-lang-dot" style={{ background: langColor }} />
-          <span>{repo.language || "—"}</span>
+          <span>{repo.language || "-"}</span>
         </span>
         <span className="pf-repo-stat"><Star size={12} /> {repo.stargazers_count}</span>
         <span className="pf-repo-stat"><GitFork size={12} /> {repo.forks_count}</span>
@@ -77,7 +77,7 @@ function HoverPreview({ image, repo }: { image: string | null; repo: Repo | null
       </div>
       <div className="pf-repo-preview-meta">
         <span>{repo ? repo.name.toUpperCase() : "AWAITING SIGNAL"}</span>
-        <span>{repo ? (repo.description ? repo.description.slice(0, 80) : "—") : "MOVE CURSOR OVER A REPOSITORY"}</span>
+        <span>{repo ? (repo.description ? repo.description.slice(0, 80) : "-") : "MOVE CURSOR OVER A REPOSITORY"}</span>
       </div>
     </div>
   );
@@ -85,8 +85,8 @@ function HoverPreview({ image, repo }: { image: string | null; repo: Repo | null
 
 export default function ProjectsPage() {
   usePageMeta({
-    title: "All Projects — Rathod Ramraj",
-    description: "Complete archive of Rathod Ramraj's GitHub repositories — full-stack, backend, database systems, and AI-powered web applications. Live README previews on hover.",
+    title: "All Projects - Rathod Ramraj",
+    description: "Complete archive of Rathod Ramraj's GitHub repositories - full-stack, backend, database systems, and AI-powered web applications. Live README previews on hover.",
     path: "/projects",
   });
   const [repos, setRepos] = useState<Repo[] | null>(null);
@@ -127,11 +127,11 @@ export default function ProjectsPage() {
     const q = query.trim().toLowerCase();
     const list = q
       ? repos.filter((r) =>
-          r.name.toLowerCase().includes(q) ||
-          (r.description || "").toLowerCase().includes(q) ||
-          (r.topics || []).some((t) => t.toLowerCase().includes(q)) ||
-          (r.language || "").toLowerCase().includes(q)
-        )
+        r.name.toLowerCase().includes(q) ||
+        (r.description || "").toLowerCase().includes(q) ||
+        (r.topics || []).some((t) => t.toLowerCase().includes(q)) ||
+        (r.language || "").toLowerCase().includes(q)
+      )
       : repos.slice();
     if (sort === "stars") list.sort((a, b) => b.stargazers_count - a.stargazers_count);
     else if (sort === "recent") list.sort((a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime());
@@ -177,12 +177,12 @@ export default function ProjectsPage() {
             EVERY <span className="pf-projects-title-accent">REPO</span> I'VE BUILT.
           </h1>
           <p className="pf-projects-sub" data-reveal="true">
-            Live feed from GitHub — sources, side experiments, and infrastructure. Hover any card to lift the README preview.
+            Live feed from GitHub - sources, side experiments, and infrastructure. Hover any card to lift the README preview.
           </p>
           <div className="pf-projects-stats" data-reveal="true">
-            <div><span>{repos ? repos.length : "—"}</span><label>Public Repos</label></div>
-            <div><span>{repos ? totalStars : "—"}</span><label>Total Stars</label></div>
-            <div><span>{repos ? totalForks : "—"}</span><label>Total Forks</label></div>
+            <div><span>{repos ? repos.length : "-"}</span><label>Public Repos</label></div>
+            <div><span>{repos ? totalStars : "-"}</span><label>Total Stars</label></div>
+            <div><span>{repos ? totalForks : "-"}</span><label>Total Forks</label></div>
           </div>
         </section>
 

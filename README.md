@@ -1,4 +1,4 @@
-# Rathod Ramraj — Portfolio
+# Rathod Ramraj - Portfolio
 
 Cinematic personal portfolio. Vite + React + TypeScript SPA, deployed on Vercel at [rathodram.vercel.app](https://rathodram.vercel.app).
 
@@ -27,10 +27,10 @@ Then open <http://localhost:5173>.
 
 ## Scripts
 
-- `npm run dev` — start Vite dev server with the GitHub proxy
-- `npm run build` — production build to `dist/public`
-- `npm run serve` — preview the built bundle
-- `npm run typecheck` — `tsc --noEmit`
+- `npm run dev` - start Vite dev server with the GitHub proxy
+- `npm run build` - production build to `dist/public`
+- `npm run serve` - preview the built bundle
+- `npm run typecheck` - `tsc --noEmit`
 
 ## Structure
 
@@ -38,7 +38,7 @@ Then open <http://localhost:5173>.
 src/
   components/Portfolio.tsx   # main page (hero, about, live, projects, oss, skills, contact)
   components/portfolio.css   # all cinematic styling
-  pages/Projects.tsx         # /projects — full GitHub archive with hover README previews
+  pages/Projects.tsx         # /projects - full GitHub archive with hover README previews
   lib/github.ts              # GH types, README image extractor, language colors
   lib/skills.ts              # skill list + icon URLs (devicon / simpleicons)
   lib/seo.ts                 # per-route meta hook

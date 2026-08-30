@@ -78,7 +78,7 @@ const JOURNEY: JourneyEntry[] = [
     title: "Cyber Security Intern",
     org: "Centre for Development of Advanced Computing (C-DAC)",
     url: "https://www.cdac.in/",
-    period: "Jun 2025 — Jul 2025",
+    period: "Jun 2025 - Jul 2025",
     status: "completed",
     detail: "Completed a virtual internship and online training program on Ethical Hacking and Penetration Testing under the Cyber Gyan Project at C-DAC, Noida. Gained practical exposure to cybersecurity concepts, ethical hacking, and penetration testing techniques.",
     tags: ["Cybersecurity", "Ethical Hacking", "Penetration Testing", "C-DAC"],
@@ -89,7 +89,7 @@ const JOURNEY: JourneyEntry[] = [
     title: "Core Member",
     org: "Super Quant Coders",
     url: "#",
-    period: "2025 — Present",
+    period: "2025 - Present",
     status: "current",
     detail: "Contributing to technical events, coding activities and collaborative software development initiatives.",
     tags: ["Programming", "Hackathons", "Open Source", "Leadership"],
@@ -100,7 +100,7 @@ const JOURNEY: JourneyEntry[] = [
     title: "B.Tech, Information Technology",
     org: "Dr B R Ambedkar National Institute of Technology Jalandhar",
     url: "https://www.nitj.ac.in/",
-    period: "Aug 2024 — Jun 2028",
+    period: "Aug 2024 - Jun 2028",
     status: "current",
     detail: "Pursuing B.Tech in Information Technology with strong focus on Data Structures & Algorithms, Full Stack Development, and scalable web technologies.",
     tags: ["NIT Jalandhar", "IT", "React", "Next.js", "Node.js"],
@@ -111,7 +111,7 @@ const JOURNEY: JourneyEntry[] = [
     title: "Student Coordinator",
     org: "National Service Scheme (NSS)",
     url: "https://nss.gov.in/",
-    period: "Aug 2024 — Dec 2024",
+    period: "Aug 2024 - Dec 2024",
     status: "completed",
     detail: "Organized blood donation drives, cleanliness campaigns and community service events.",
     tags: ["Leadership", "Volunteer", "Community"],
@@ -122,7 +122,7 @@ const JOURNEY: JourneyEntry[] = [
     title: "Higher Secondary (Class XII)",
     org: "Narayana Junior College, Miyapur",
     url: "https://www.narayanajuniorcolleges.com/",
-    period: "2022 — 2024",
+    period: "2022 - 2024",
     status: "completed",
     detail: "Completed intermediate education focusing on Physics, Chemistry, and Mathematics (PCM) at IIT-JEE-NEET Academy. Secured 97.3% marks in board examinations.",
     tags: ["97.3%", "Intermediate", "IIT-JEE Prep"],
@@ -130,10 +130,10 @@ const JOURNEY: JourneyEntry[] = [
   {
     kind: "education",
     logo: "/educations/school(5th-10th).png",
-    title: "Secondary Education (5th — 10th)",
+    title: "Secondary Education (5th - 10th)",
     org: "TGSWREIS, Jinnaram (Sangareddy)",
     url: "https://tgtwreis.telangana.gov.in/",
-    period: "2016 — 2022",
+    period: "2016 - 2022",
     status: "completed",
     detail: "Completed secondary school education with academic honors under Telangana State Social Welfare Residential Educational Institutions Society. Secured 9.2 CGPA.",
     tags: ["9.2 CGPA", "Telangana", "Secondary School"],
@@ -141,10 +141,10 @@ const JOURNEY: JourneyEntry[] = [
   {
     kind: "education",
     logo: "/educations/school(nursarary-4th).jpeg",
-    title: "Primary Education (Nursery — 4th)",
+    title: "Primary Education (Nursery - 4th)",
     org: "High Mount High School, Hyderabad",
     url: "https://www.uniapply.com/school/high-mount-high-school-hyderabad/",
-    period: "2010 — 2016",
+    period: "2010 - 2016",
     status: "completed",
     detail: "Primary education at Mangalhat, Hyderabad. Focused on early academic foundations, social development, and extracurricular participation.",
     tags: ["Primary School", "Hyderabad"],
@@ -452,7 +452,7 @@ function LanguageStats() {
             key={b.name}
             className="pf-lang-stats-bar-seg"
             style={{ width: `${(b.count / total) * 100}%`, background: b.color }}
-            title={`${b.name} — ${b.count} repos`}
+            title={`${b.name} - ${b.count} repos`}
           />
         ))}
       </div>
@@ -545,7 +545,7 @@ function Terminal() {
     <div ref={ref} className="pf-terminal-panel" data-reveal="true">
       <div className="pf-terminal-topline">
         <Code size={16} aria-hidden="true" />
-        <span>Ramraj_CONSOLE</span>
+        <span>RAMRAJ_CONSOLE</span>
       </div>
       <div className="pf-terminal-lines">
         {TERMINAL_LINES.map((line, i) => (
@@ -888,10 +888,10 @@ function LeetCodeCard() {
         </span>
       </div>
       <div className="pf-leetcode-headline">
-        <span className="pf-leetcode-total">{loading ? "—" : data!.totalSolved}</span>
+        <span className="pf-leetcode-total">{loading ? "-" : data!.totalSolved}</span>
         <span className="pf-leetcode-total-label">Problems Solved</span>
         <span className="pf-leetcode-rank">
-          Global Rank <strong>#{loading ? "—" : data!.ranking.toLocaleString()}</strong>
+          Global Rank <strong>#{loading ? "-" : data!.ranking.toLocaleString()}</strong>
         </span>
       </div>
       <div className="pf-leetcode-progress-wrap">
@@ -899,7 +899,7 @@ function LeetCodeCard() {
           <div className="pf-leetcode-progress-fill" style={{ width: `${totalPct}%` }} />
         </div>
         <span className="pf-leetcode-progress-meta">
-          {loading ? "—" : `${data!.totalSolved} / ${data!.totalQuestions}`}
+          {loading ? "-" : `${data!.totalSolved} / ${data!.totalQuestions}`}
         </span>
       </div>
       <div className="pf-leetcode-buckets">
@@ -909,7 +909,7 @@ function LeetCodeCard() {
             <div key={b.key} className="pf-leetcode-bucket">
               <div className="pf-leetcode-bucket-head">
                 <span className="pf-leetcode-bucket-label">{b.key}</span>
-                <span className="pf-leetcode-bucket-count">{loading ? "—" : `${b.solved}/${b.total}`}</span>
+                <span className="pf-leetcode-bucket-count">{loading ? "-" : `${b.solved}/${b.total}`}</span>
               </div>
               <div className="pf-leetcode-bucket-track">
                 <div className="pf-leetcode-bucket-fill" style={{ width: `${pct}%`, background: b.color }} />
@@ -986,7 +986,7 @@ function OssSection() {
         });
         if (fetched.length > 0) setPrs(fetched);
       })
-      .catch(() => {});
+      .catch(() => { });
     return () => { active = false; };
   }, []);
 
@@ -1028,7 +1028,7 @@ function OssSection() {
 
 export function Portfolio() {
   usePageMeta({
-    title: "Rathod Ramraj — Full Stack Developer • React • Next.js • Node.js",
+    title: "Rathod Ramraj - Developer, Student & Builder",
     description: "Rathod Ramraj is a Full Stack Developer and B.Tech IT student at NIT Jalandhar. Passionate about building scalable web applications using React, Next.js, Node.js, MongoDB, PostgreSQL, and AI-powered solutions.",
     path: "/",
   });
@@ -1243,7 +1243,7 @@ export function Portfolio() {
             <div className="pf-about-grid">
               <h2 data-reveal="true">BUILDING DIGITAL PRODUCTS FROM SCRATCH.</h2>
               <div className="pf-about-copy" data-reveal="true">
-                <p>I'm Rathod Ramraj — a Full Stack Developer and B.Tech Information Technology student at NIT Jalandhar, passionate about building scalable web applications, AI-powered platforms, and modern user experiences.</p>
+                <p>I'm Rathod Ramraj - a Full Stack Developer and B.Tech Information Technology student at NIT Jalandhar, passionate about building scalable web applications, AI-powered platforms, and modern user experiences.</p>
                 <p>I enjoy transforming ideas into high-quality code. I specialize in React, Next.js, Node.js, MongoDB, and PostgreSQL, with a strong interest in AI integration, clean coding patterns, and intuitive UI/UX design.</p>
               </div>
             </div>
@@ -1266,7 +1266,7 @@ export function Portfolio() {
         <section id="live" data-chapter="live" className="pf-chapter pf-live-section">
           <div className="pf-section-shell">
             <p className="pf-chapter-label" data-reveal="true">03 / Live Signal</p>
-            <h2 className="pf-live-heading" data-reveal="true">REALTIME — PRESENCE &amp; PRACTICE.</h2>
+            <h2 className="pf-live-heading" data-reveal="true">REALTIME - PRESENCE &amp; PRACTICE.</h2>
             <div className="pf-live-grid">
               <div data-reveal="true"><DiscordCard /></div>
               <div data-reveal="true"><LeetCodeCard /></div>
@@ -1302,7 +1302,7 @@ export function Portfolio() {
           <div className="pf-section-shell">
             <div className="pf-section-heading">
               <p className="pf-chapter-label" data-reveal="true">06 / Journey</p>
-              <h2 data-reveal="true">EDUCATION &amp; WORK — TRAJECTORY ON RECORD.</h2>
+              <h2 data-reveal="true">EDUCATION &amp; WORK - TRAJECTORY ON RECORD.</h2>
             </div>
             <JourneyTimeline />
           </div>
