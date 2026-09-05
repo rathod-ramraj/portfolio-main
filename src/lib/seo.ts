@@ -33,13 +33,13 @@ export function usePageMeta({ title, description, path }: Meta) {
     setMetaByProperty("og:title", title);
     setMetaByProperty("og:description", description);
     setMetaByProperty("og:url", canonical);
-    setMetaByProperty("og:image", `${SITE}/favicon.png`);
+    setMetaByProperty("og:image", `${SITE}/thumb.png`);
     setMetaByProperty("og:site_name", "Rathod Ramraj");
     setMetaByName("application-name", "Rathod Ramraj");
     setMetaByName("apple-mobile-web-app-title", "Rathod Ramraj");
     setMetaByName("twitter:card", "summary");
     setMetaByName("twitter:title", title);
     setMetaByName("twitter:description", description);
-    setMetaByName("twitter:image", `${SITE}/favicon.png`);
+    setMetaByName("twitter:image", `${SITE}/thumb.png`);
   }, [title, description, path]);
 }
