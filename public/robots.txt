@@ -3,4 +3,3 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://rathodram.is-a.dev/sitemap.xml
-Sitemap: https://rathodram.vercel.app/sitemap.xml
