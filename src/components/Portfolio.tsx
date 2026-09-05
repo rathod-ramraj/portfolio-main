@@ -1203,7 +1203,7 @@ export function Portfolio() {
 
       <nav className={`pf-chapter-nav${ready ? " is-ready" : ""}`} aria-label="Chapter navigation">
         <a href="#hero" className="pf-chapter-nav-brand" data-cursor-link>
-          <img src="/nobg.png" alt="Rathod Ramraj" />
+          <img src="/favicon.png" alt="Rathod Ramraj" />
           <span>RAMRAJ</span>
         </a>
         <div className="pf-chapter-nav-links" ref={navLinksRef}>
