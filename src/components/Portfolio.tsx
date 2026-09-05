@@ -1260,7 +1260,7 @@ export function Portfolio() {
                 className="pf-hero-subtitle"
                 style={{ opacity: 0, transform: "translateY(30px)" }}
               >
-                Full Stack Developer <span aria-hidden="true">•</span> React <span aria-hidden="true">•</span> Next.js <span aria-hidden="true">•</span> Node.js
+                Developer, Student &amp; Builder
               </p>
             </div>
             <div className="pf-hero-visual">
@@ -1368,7 +1368,7 @@ export function Portfolio() {
                 <Github size={18} aria-hidden="true" style={{ color: "#a371f7" }} />
                 <span>GitHub</span>
               </a>
-              <a href="https://www.linkedin.com/in/rathod-ramraj-a50794323" target="_blank" rel="noreferrer" data-cursor-link>
+              <a href="https://www.linkedin.com/in/rathod-ramraj/" target="_blank" rel="noreferrer" data-cursor-link>
                 <Linkedin size={18} aria-hidden="true" style={{ color: "#0A66C2" }} />
                 <span>LinkedIn</span>
               </a>
