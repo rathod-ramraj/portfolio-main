@@ -2,7 +2,15 @@ import { useEffect } from "react";
 
 type Meta = { title: string; description: string; path: string };
 
-const SITE = "https://rathodram.vercel.app";
+const PRIMARY_SITE = "https://rathodram.is-a.dev";
+const SECONDARY_SITE = "https://rathodram.vercel.app";
+
+function getSiteUrl() {
+  if (typeof window !== "undefined" && window.location.hostname.includes("vercel.app")) {
+    return SECONDARY_SITE;
+  }
+  return PRIMARY_SITE;
+}
 
 function setMetaByName(name: string, content: string) {
   let el = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
@@ -14,18 +22,26 @@ function setMetaByProperty(property: string, content: string) {
   if (!el) { el = document.createElement("meta"); el.setAttribute("property", property); document.head.appendChild(el); }
   el.setAttribute("content", content);
 }
-function setCanonical(href: string) {
+function setCanonical(primaryHref: string, altHref: string) {
   let el = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!el) { el = document.createElement("link"); el.setAttribute("rel", "canonical"); document.head.appendChild(el); }
-  el.setAttribute("href", href);
+  el.setAttribute("href", primaryHref);
+
+  let altEl = document.querySelector<HTMLLinkElement>('link[rel="alternate"]');
+  if (!altEl) { altEl = document.createElement("link"); altEl.setAttribute("rel", "alternate"); document.head.appendChild(altEl); }
+  altEl.setAttribute("href", altHref);
 }
 
 export function usePageMeta({ title, description, path }: Meta) {
   useEffect(() => {
-    const canonical = `${SITE}${path}`;
+    const siteUrl = getSiteUrl();
+    const canonical = `${siteUrl}${path}`;
+    const primaryCanonical = `${PRIMARY_SITE}${path}`;
+    const secondaryAlternate = `${SECONDARY_SITE}${path}`;
+
     document.title = title;
     setMetaByName("description", description);
-    setCanonical(canonical);
+    setCanonical(primaryCanonical, secondaryAlternate);
     setMetaByProperty("og:title", title);
     setMetaByProperty("og:description", description);
     setMetaByProperty("og:url", canonical);

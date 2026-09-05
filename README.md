@@ -1,6 +1,6 @@
 # Rathod Ramraj - Portfolio
 
-Cinematic personal portfolio. Vite + React + TypeScript SPA, deployed on Vercel at [rathodram.vercel.app](https://rathodram.vercel.app).
+Cinematic personal portfolio. Vite + React + TypeScript SPA, deployed at [rathodram.is-a.dev](https://rathodram.is-a.dev) & [rathodram.vercel.app](https://rathodram.vercel.app).
 
 ## Preview
 

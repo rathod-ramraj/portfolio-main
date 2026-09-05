@@ -1211,6 +1211,7 @@ export function Portfolio() {
               <h1
                 ref={heroWordRef}
                 className="pf-hero-word"
+                aria-label="Rathod Ramraj"
                 style={{ opacity: 0, transform: "translateY(80px) rotateX(16deg)" }}
               >
                 RAMRAJ
