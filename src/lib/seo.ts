@@ -37,6 +37,7 @@ export function usePageMeta({ title, description, path }: Meta) {
     setMetaByProperty("og:site_name", "Rathod Ramraj");
     setMetaByName("application-name", "Rathod Ramraj");
     setMetaByName("apple-mobile-web-app-title", "Rathod Ramraj");
+    setMetaByName("twitter:card", "summary");
     setMetaByName("twitter:title", title);
     setMetaByName("twitter:description", description);
     setMetaByName("twitter:image", `${SITE}/favicon.png`);
