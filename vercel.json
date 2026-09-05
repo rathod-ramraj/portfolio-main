@@ -3,6 +3,19 @@
   "framework": "vite",
   "buildCommand": "vite build --config vite.config.ts",
   "outputDirectory": "dist/public",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "rathodram.vercel.app"
+        }
+      ],
+      "destination": "https://rathodram.is-a.dev/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/api/gh/:path*", "destination": "/api/gh?path=:path*" },
     { "source": "/((?!api).*)", "destination": "/index.html" }

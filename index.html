@@ -75,6 +75,11 @@
       ]
     }
     </script>
+    <script>
+      if (window.location.hostname === "rathodram.vercel.app") {
+        window.location.replace("https://rathodram.is-a.dev" + window.location.pathname + window.location.search + window.location.hash);
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

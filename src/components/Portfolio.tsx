@@ -156,9 +156,14 @@ const OSS_PRS: any[] = [];
 function useCounter(target: number, suffix: string, isVisible: boolean): string {
   const [val, setVal] = useState("0" + suffix);
   const started = useRef(false);
+  const prevTarget = useRef(target);
+
   useEffect(() => {
-    if (!isVisible || started.current) return;
+    if (!isVisible) return;
+    if (started.current && prevTarget.current === target) return;
     started.current = true;
+    prevTarget.current = target;
+
     const duration = 1800;
     let startTs: number | null = null;
     let raf: number;
@@ -1034,11 +1039,45 @@ export function Portfolio() {
   });
   const [ready, setReady] = useState(false);
   const [activeChapter, setActiveChapter] = useState("hero");
+  const [githubStats, setGithubStats] = useState<{ publicRepos: number; projectsCount: number }>({
+    publicRepos: 42,
+    projectsCount: 15,
+  });
   const navLinksRef = useRef<HTMLDivElement>(null);
   const navProgressRef = useRef<HTMLSpanElement>(null);
   const heroWordRef = useRef<HTMLHeadingElement>(null);
   const heroSubRef = useRef<HTMLParagraphElement>(null);
   const onPreloaderDone = useCallback(() => setReady(true), []);
+
+  useEffect(() => {
+    let active = true;
+    fetch(`/api/gh/users/${GH_USER}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((user) => {
+        if (!active || !user || typeof user.public_repos !== "number") return;
+        setGithubStats((prev) => ({
+          ...prev,
+          publicRepos: user.public_repos,
+        }));
+      })
+      .catch(() => {});
+
+    fetch(`/api/gh/users/${GH_USER}/repos?per_page=100&sort=updated`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((repos) => {
+        if (!active || !Array.isArray(repos)) return;
+        const originalProjects = repos.filter((r: any) => !r.fork && !r.archived && !r.private);
+        if (originalProjects.length > 0) {
+          setGithubStats((prev) => ({
+            ...prev,
+            projectsCount: originalProjects.length,
+          }));
+        }
+      })
+      .catch(() => {});
+
+    return () => { active = false; };
+  }, []);
 
   useEffect(() => {
     if (!ready) return;
@@ -1256,9 +1295,9 @@ export function Portfolio() {
           <div className="pf-section-shell">
             <p className="pf-chapter-label" data-reveal="true">02 / Numbers</p>
             <div className="pf-metrics-grid">
-              <MetricCard value="11" label="Projects Built" delay={0} />
+              <MetricCard value={`${githubStats.projectsCount}+`} label="Projects Built" delay={0} />
               <MetricCard value="2028" label="NITJ B.Tech IT Batch" delay={100} />
-              <MetricCard value="15+" label="Public GitHub Repos" delay={200} />
+              <MetricCard value={`${githubStats.publicRepos}+`} label="Public GitHub Repos" delay={200} />
               <MetricCard value="2" label="Technical Internships" delay={300} />
             </div>
           </div>
