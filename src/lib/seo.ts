@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 type Meta = { title: string; description: string; path: string };
 
-const SITE = "https://rathodram.is-a.dev";
+const SITE = "https://rathodram.vercel.app";
 
 function setMetaByName(name: string, content: string) {
   let el = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
@@ -33,12 +33,12 @@ export function usePageMeta({ title, description, path }: Meta) {
     setMetaByProperty("og:title", title);
     setMetaByProperty("og:description", description);
     setMetaByProperty("og:url", canonical);
-    setMetaByProperty("og:image", `${SITE}/preview.png`);
+    setMetaByProperty("og:image", `${SITE}/favicon.png`);
     setMetaByProperty("og:site_name", "Rathod Ramraj");
     setMetaByName("application-name", "Rathod Ramraj");
     setMetaByName("apple-mobile-web-app-title", "Rathod Ramraj");
     setMetaByName("twitter:title", title);
     setMetaByName("twitter:description", description);
-    setMetaByName("twitter:image", `${SITE}/preview.png`);
+    setMetaByName("twitter:image", `${SITE}/favicon.png`);
   }, [title, description, path]);
 }
