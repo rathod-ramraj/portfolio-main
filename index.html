@@ -35,44 +35,45 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Google Site Names structured data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Person",
-          "@id": "https://rathodram.is-a.dev/#person",
-          "name": "Rathod Ramraj",
-          "url": "https://rathodram.is-a.dev/",
-          "image": "https://rathodram.is-a.dev/nobg.png",
-          "jobTitle": "Full Stack Developer",
-          "description": "Rathod Ramraj is a Full Stack Developer and B.Tech IT student at NIT Jalandhar.",
-          "address": { 
-            "@type": "PostalAddress", 
-            "addressLocality": "Hyderabad", 
-            "addressRegion": "Telangana", 
-            "addressCountry": "IN" 
-          },
-          "email": "mailto:rathodramraj.dev@gmail.com",
-          "sameAs": [
-            "https://rathodram.is-a.dev/",
-            "https://github.com/rathod-ramraj",
-            "https://www.linkedin.com/in/rathod-ramraj/",
-            "https://leetcode.com/u/Rathod_Ramraj/",
-            "https://codeforces.com/profile/rathodram"
-          ],
-          "knowsAbout": ["Full Stack Development", "React", "Next.js", "Node.js", "MongoDB", "PostgreSQL", "AI & APIs", "Data Structures & Algorithms"]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://rathodram.is-a.dev/#website",
-          "url": "https://rathodram.is-a.dev/",
-          "name": "Rathod Ramraj",
-          "alternateName": ["Rathod Ramraj Portfolio", "Ramraj Portfolio"],
-          "publisher": { "@id": "https://rathodram.is-a.dev/#person" },
-          "inLanguage": "en"
-        }
-      ]
+      "@type": "WebSite",
+      "name": "Rathod Ramraj",
+      "alternateName": [
+        "Rathod Ramraj Portfolio",
+        "Ramraj",
+        "rathodram.is-a.dev"
+      ],
+      "url": "https://rathodram.is-a.dev/"
+    }
+    </script>
+
+    <!-- Person structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rathod Ramraj",
+      "url": "https://rathodram.is-a.dev/",
+      "image": "https://rathodram.is-a.dev/nobg.png",
+      "jobTitle": "Full Stack Developer",
+      "description": "Rathod Ramraj is a Full Stack Developer and B.Tech IT student at NIT Jalandhar.",
+      "address": { 
+        "@type": "PostalAddress", 
+        "addressLocality": "Hyderabad", 
+        "addressRegion": "Telangana", 
+        "addressCountry": "IN" 
+      },
+      "email": "mailto:rathodramraj.dev@gmail.com",
+      "sameAs": [
+        "https://github.com/rathod-ramraj",
+        "https://www.linkedin.com/in/rathod-ramraj/",
+        "https://leetcode.com/u/Rathod_Ramraj/",
+        "https://codeforces.com/profile/rathodram"
+      ],
+      "knowsAbout": ["Full Stack Development", "React", "Next.js", "Node.js", "MongoDB", "PostgreSQL", "AI & APIs", "Data Structures & Algorithms"]
     }
     </script>
     <script>
@@ -82,6 +83,10 @@
     </script>
   </head>
   <body>
+    <noscript>
+      <h1>Rathod Ramraj</h1>
+      <p>Developer, Student &amp; Builder - Portfolio</p>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
