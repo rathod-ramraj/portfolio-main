@@ -1378,6 +1378,7 @@
   .pf-chapter-nav-brand span:not(.pf-chapter-nav-brand-dot) { display: none; }
   .pf-chapter-nav-brand { padding-right: 0.55rem; }
   .pf-chapter-nav-cta span { display: none; }
+  .pf-chapter-nav-cta { padding: 0.55rem 0.75rem; margin-left: 0.25rem; }
   .pf-chapter-nav a:not(.pf-chapter-nav-brand):not(.pf-chapter-nav-cta) > span:first-child { display: none; }
   .pf-shell { padding-top: 48px; }
   .pf-journey-entry { grid-template-columns: 60px 24px 1fr; }

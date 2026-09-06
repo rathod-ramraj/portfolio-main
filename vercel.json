@@ -5,6 +5,10 @@
   "outputDirectory": "dist/public",
   "rewrites": [
     {
+      "source": "/resume",
+      "destination": "/resume/Resume_v4.pdf"
+    },
+    {
       "source": "/api/gh/:path*",
       "destination": "/api/gh?path=:path*"
     },

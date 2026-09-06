@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "wouter";
-import { Code, MessageCircle, Github, Instagram, Linkedin, ExternalLink, ArrowRight, Star, GraduationCap, Briefcase, Youtube } from "lucide-react";
+import { Code, MessageCircle, Github, Instagram, Linkedin, ExternalLink, ArrowRight, Star, GraduationCap, Briefcase, Youtube, FileText, Download } from "lucide-react";
 import { usePageMeta } from "../lib/seo";
 import { GH_USER, LANG_COLORS, fetchReadmePreview, timeAgo, type Repo } from "../lib/github";
 import { SKILLS, CATEGORIES, type SkillCategory } from "../lib/skills";
@@ -1220,6 +1220,17 @@ export function Portfolio() {
           ))}
         </div>
         <a
+          href="/resume/Resume_v4.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pf-chapter-nav-cta"
+          data-cursor-link
+          title="Resume"
+        >
+          <FileText size={12} aria-hidden="true" />
+          <span>Resume</span>
+        </a>
+        <a
           href="https://github.com/rathod-ramraj"
           target="_blank"
           rel="noreferrer"
@@ -1364,6 +1375,14 @@ export function Portfolio() {
             <p className="pf-chapter-label">08 / Contact</p>
             <h2>LET'S BUILD SOMETHING TOGETHER</h2>
             <div className="pf-contact-actions">
+              <a href="/resume/Resume_v4.pdf" target="_blank" rel="noopener noreferrer" data-cursor-link>
+                <FileText size={18} aria-hidden="true" style={{ color: "#39e8ff" }} />
+                <span>Resume</span>
+              </a>
+              <a href="/resume/Resume_v4.pdf" download="Resume_v4.pdf" data-cursor-link>
+                <Download size={18} aria-hidden="true" style={{ color: "#22c55e" }} />
+                <span>Download Resume</span>
+              </a>
               <a href="https://github.com/rathod-ramraj" target="_blank" rel="noreferrer" data-cursor-link>
                 <Github size={18} aria-hidden="true" style={{ color: "#a371f7" }} />
                 <span>GitHub</span>
