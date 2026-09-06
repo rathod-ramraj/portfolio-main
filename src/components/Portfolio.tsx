@@ -4,6 +4,7 @@ import { Code, MessageCircle, Github, Instagram, Linkedin, ExternalLink, ArrowRi
 import { usePageMeta } from "../lib/seo";
 import { GH_USER, LANG_COLORS, fetchReadmePreview, timeAgo, type Repo } from "../lib/github";
 import { SKILLS, CATEGORIES, type SkillCategory } from "../lib/skills";
+import { RESUME_PATH, RESUME_FILENAME } from "../lib/resume";
 import "./portfolio.css";
 
 const MARQUEE_ITEMS = [
@@ -1220,7 +1221,7 @@ export function Portfolio() {
           ))}
         </div>
         <a
-          href="/resume/Resume_v4.pdf"
+          href={RESUME_PATH}
           target="_blank"
           rel="noopener noreferrer"
           className="pf-chapter-nav-cta"
@@ -1375,11 +1376,11 @@ export function Portfolio() {
             <p className="pf-chapter-label">08 / Contact</p>
             <h2>LET'S BUILD SOMETHING TOGETHER</h2>
             <div className="pf-contact-actions">
-              <a href="/resume/Resume_v4.pdf" target="_blank" rel="noopener noreferrer" data-cursor-link>
+              <a href={RESUME_PATH} target="_blank" rel="noopener noreferrer" data-cursor-link>
                 <FileText size={18} aria-hidden="true" style={{ color: "#39e8ff" }} />
                 <span>Resume</span>
               </a>
-              <a href="/resume/Resume_v4.pdf" download="Resume_v4.pdf" data-cursor-link>
+              <a href={RESUME_PATH} download={RESUME_FILENAME} data-cursor-link>
                 <Download size={18} aria-hidden="true" style={{ color: "#22c55e" }} />
                 <span>Download Resume</span>
               </a>

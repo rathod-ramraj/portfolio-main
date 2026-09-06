@@ -2,6 +2,7 @@ import { defineConfig, loadEnv, type Connect, type Plugin, type ViteDevServer, t
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
@@ -122,6 +123,72 @@ function leetcodeProxyPlugin(): Plugin {
   };
 }
 
+function resumeScannerPlugin(): Plugin {
+  const syncResume = () => {
+    const resumeDir = path.resolve(__dirname, "public/resume");
+    if (!fs.existsSync(resumeDir)) return;
+    const files = fs.readdirSync(resumeDir).filter((f) => f.toLowerCase().endsWith(".pdf"));
+    if (files.length === 0) return;
+
+    files.sort((a, b) => b.localeCompare(a, undefined, { numeric: true, sensitivity: "base" }));
+    const latestFile = files[0];
+    const resumePath = `/resume/${latestFile}`;
+    const resumeTsFile = path.resolve(__dirname, "src/lib/resume.ts");
+
+    const content = `// Auto-generated from public/resume directory. Do not edit directly.\nexport const RESUME_PATH = ${JSON.stringify(resumePath)};\nexport const RESUME_FILENAME = ${JSON.stringify(latestFile)};\n`;
+
+    if (!fs.existsSync(resumeTsFile) || fs.readFileSync(resumeTsFile, "utf-8") !== content) {
+      fs.writeFileSync(resumeTsFile, content, "utf-8");
+    }
+
+    const vercelConfigPath = path.resolve(__dirname, "vercel.json");
+    if (fs.existsSync(vercelConfigPath)) {
+      try {
+        const vercelJson = JSON.parse(fs.readFileSync(vercelConfigPath, "utf-8"));
+        if (Array.isArray(vercelJson.rewrites)) {
+          const rule = vercelJson.rewrites.find((r: any) => r.source === "/resume");
+          if (rule && rule.destination !== resumePath) {
+            rule.destination = resumePath;
+            fs.writeFileSync(vercelConfigPath, JSON.stringify(vercelJson, null, 2) + "\n", "utf-8");
+          }
+        }
+      } catch {}
+    }
+  };
+
+  return {
+    name: "resume-scanner",
+    buildStart() {
+      syncResume();
+    },
+    configureServer(server) {
+      syncResume();
+      const resumeDir = path.resolve(__dirname, "public/resume");
+      server.watcher.add(resumeDir);
+      server.watcher.on("all", (_event, filePath) => {
+        if (filePath.startsWith(resumeDir) && filePath.toLowerCase().endsWith(".pdf")) {
+          syncResume();
+        }
+      });
+      server.middlewares.use((req, res, next) => {
+        if (req.url === "/resume" || req.url === "/resume/") {
+          const resumeDir = path.resolve(__dirname, "public/resume");
+          if (fs.existsSync(resumeDir)) {
+            const files = fs.readdirSync(resumeDir).filter((f) => f.toLowerCase().endsWith(".pdf"));
+            if (files.length > 0) {
+              files.sort((a, b) => b.localeCompare(a, undefined, { numeric: true, sensitivity: "base" }));
+              res.writeHead(302, { Location: `/resume/${files[0]}` });
+              res.end();
+              return;
+            }
+          }
+        }
+        next();
+      });
+    },
+  };
+}
+
 export default defineConfig({
   base: basePath,
   plugins: [
@@ -130,6 +197,7 @@ export default defineConfig({
     runtimeErrorOverlay(),
     githubProxyPlugin(),
     leetcodeProxyPlugin(),
+    resumeScannerPlugin(),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [
