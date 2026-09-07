@@ -2,4 +2,12 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
+User-agent: Googlebot-Image
+Allow: /
+Allow: /favicon.ico
+Allow: /favicon.png
+Allow: /favicon-48x48.png
+Allow: /favicon-96x96.png
+Allow: /favicon.svg
+
 Sitemap: https://rathodram.vercel.app/sitemap.xml

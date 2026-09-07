@@ -3,6 +3,17 @@
   "framework": "vite",
   "buildCommand": "vite build --config vite.config.ts",
   "outputDirectory": "dist/public",
+  "headers": [
+    {
+      "source": "/(favicon.*|thumb.png)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/resume",
