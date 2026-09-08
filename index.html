@@ -67,38 +67,82 @@
     }
   </script>
 
-  <!-- Person structured data -->
+  <!-- ProfilePage structured data for Google Search -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Rathod Ramraj",
-      "url": "https://rathodram.vercel.app/",
-      "image": "https://rathodram.vercel.app/nobg.png",
-      "jobTitle": "Full Stack Developer",
-      "description": "Rathod Ramraj is a Full Stack Developer and B.Tech IT student at NIT Jalandhar.",
-      "address": { 
-        "@type": "PostalAddress", 
-        "addressLocality": "Hyderabad", 
-        "addressRegion": "Telangana", 
-        "addressCountry": "IN" 
-      },
-      "email": "mailto:rathodramraj.dev@gmail.com",
-      "sameAs": [
-        "https://github.com/rathod-ramraj",
-        "https://www.linkedin.com/in/rathod-ramraj/",
-        "https://leetcode.com/u/Rathod_Ramraj/",
-        "https://codeforces.com/profile/rathodram"
-      ],
-      "knowsAbout": ["Full Stack Development", "React", "Next.js", "Node.js", "MongoDB", "PostgreSQL", "AI & APIs", "Data Structures & Algorithms"]
+      "@type": "ProfilePage",
+      "dateCreated": "2024-01-01T00:00:00+05:30",
+      "dateModified": "2026-09-08T00:00:00+05:30",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Rathod Ramraj",
+        "alternateName": "Ramraj",
+        "url": "https://rathodram.vercel.app/",
+        "image": "https://rathodram.vercel.app/thumb.png",
+        "jobTitle": "Full Stack Developer",
+        "description": "Rathod Ramraj is a Full Stack Developer and B.Tech IT student at NIT Jalandhar.",
+        "address": { 
+          "@type": "PostalAddress", 
+          "addressLocality": "Hyderabad", 
+          "addressRegion": "Telangana", 
+          "addressCountry": "IN" 
+        },
+        "email": "mailto:rathodramraj.dev@gmail.com",
+        "sameAs": [
+          "https://github.com/rathod-ramraj",
+          "https://www.linkedin.com/in/rathod-ramraj/",
+          "https://leetcode.com/u/Rathod_Ramraj/",
+          "https://codeforces.com/profile/rathodram"
+        ],
+        "knowsAbout": ["Full Stack Development", "React", "Next.js", "Node.js", "MongoDB", "PostgreSQL", "AI & APIs", "Data Structures & Algorithms"]
+      }
     }
-    </script>
+  </script>
 </head>
 
 <body>
   <noscript>
-    <h1>Rathod Ramraj</h1>
-    <p>Developer, Student &amp; Builder - Portfolio</p>
+    <header>
+      <h1>Rathod Ramraj — Full Stack Developer &amp; Builder</h1>
+      <p>B.Tech Information Technology student at NIT Jalandhar. Building scalable web applications, high-performance backends, and AI-powered solutions.</p>
+    </header>
+    <main>
+      <section>
+        <h2>About Rathod Ramraj</h2>
+        <p>I'm Rathod Ramraj, a Full Stack Developer and B.Tech Information Technology student at NIT Jalandhar, passionate about building scalable web applications, AI-powered platforms, and modern user experiences.</p>
+        <p>Specializing in React, Next.js, Node.js, TypeScript, MongoDB, PostgreSQL, and modern web architectures.</p>
+      </section>
+      <section>
+        <h2>Featured Projects</h2>
+        <ul>
+          <li><strong>Nezuko Web Push:</strong> Privacy-focused web push notification platform allowing websites to send instant browser notifications with a single line of JavaScript.</li>
+          <li><strong>WatchFlow:</strong> Regional streaming directory discovery platform with automated link health verification bot.</li>
+          <li><strong>AnimeXplore:</strong> High-performance anime platform with multi-source resolution, episodes, and AniList/MAL metadata integration.</li>
+          <li><strong>OneFlix:</strong> Full-stack streaming platform with responsive design and modern UX.</li>
+          <li><strong>Meme Adda:</strong> Interactive community meme platform with instant sharing and real-time feeds.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Technical Skills</h2>
+        <p>Languages &amp; Frameworks: JavaScript, TypeScript, React, Next.js, Node.js, Express, HTML5, CSS3, Tailwind CSS, Python, C++.</p>
+        <p>Databases &amp; Tools: MongoDB, PostgreSQL, Git, Docker, REST APIs, GraphQL, Linux.</p>
+      </section>
+      <section>
+        <h2>Experience &amp; Education</h2>
+        <p>B.Tech in Information Technology — Dr. B. R. Ambedkar National Institute of Technology (NIT) Jalandhar (2023 - 2027).</p>
+        <p>Cyber Security Intern — Centre for Development of Advanced Computing (C-DAC), Noida (Ethical Hacking &amp; Penetration Testing).</p>
+      </section>
+      <section>
+        <h2>Contact &amp; Profiles</h2>
+        <p>Email: <a href="mailto:rathodramraj.dev@gmail.com">rathodramraj.dev@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/rathod-ramraj">github.com/rathod-ramraj</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/rathod-ramraj/">linkedin.com/in/rathod-ramraj</a></p>
+        <p>LeetCode: <a href="https://leetcode.com/u/Rathod_Ramraj/">leetcode.com/u/Rathod_Ramraj</a></p>
+        <p>Codeforces: <a href="https://codeforces.com/profile/rathodram">codeforces.com/profile/rathodram</a></p>
+        <p>Resume: <a href="/resume/Resume_v4.pdf">View &amp; Download Resume (PDF)</a></p>
+      </section>
+    </main>
   </noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>

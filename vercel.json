@@ -24,6 +24,10 @@
       "destination": "/api/gh?path=:path*"
     },
     {
+      "source": "/projects",
+      "destination": "/projects/index.html"
+    },
+    {
       "source": "/((?!api).*)",
       "destination": "/index.html"
     }

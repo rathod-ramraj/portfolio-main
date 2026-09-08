@@ -189,6 +189,35 @@ function resumeScannerPlugin(): Plugin {
   };
 }
 
+function prerenderPagesPlugin(): Plugin {
+  return {
+    name: "prerender-pages",
+    closeBundle() {
+      const outDir = path.resolve(__dirname, "dist/public");
+      const indexPath = path.join(outDir, "index.html");
+      if (!fs.existsSync(indexPath)) return;
+
+      const indexHtml = fs.readFileSync(indexPath, "utf-8");
+      const projectsDir = path.join(outDir, "projects");
+      if (!fs.existsSync(projectsDir)) {
+        fs.mkdirSync(projectsDir, { recursive: true });
+      }
+
+      const projectsHtml = indexHtml
+        .replace(/<title>.*?<\/title>/, "<title>All Projects - Rathod Ramraj</title>")
+        .replace(/<link rel="canonical" href=".*?" \/>/, '<link rel="canonical" href="https://rathodram.vercel.app/projects" />')
+        .replace(/<meta property="og:url" content=".*?" \/>/, '<meta property="og:url" content="https://rathodram.vercel.app/projects" />')
+        .replace(/<meta name="description"\s+content=".*?" \/>/s, '<meta name="description" content="Complete archive of Rathod Ramraj\'s GitHub repositories - full-stack, backend, database systems, and AI-powered web applications." />')
+        .replace(/<meta property="og:title" content=".*?" \/>/, '<meta property="og:title" content="All Projects - Rathod Ramraj" />')
+        .replace(/<meta name="twitter:title" content=".*?" \/>/, '<meta name="twitter:title" content="All Projects - Rathod Ramraj" />')
+        .replace(/<meta property="og:description"\s+content=".*?" \/>/s, '<meta property="og:description" content="Complete archive of Rathod Ramraj\'s GitHub repositories - full-stack, backend, database systems, and AI-powered web applications." />')
+        .replace(/<meta name="twitter:description"\s+content=".*?" \/>/s, '<meta name="twitter:description" content="Complete archive of Rathod Ramraj\'s GitHub repositories - full-stack, backend, database systems, and AI-powered web applications." />');
+
+      fs.writeFileSync(path.join(projectsDir, "index.html"), projectsHtml, "utf-8");
+    },
+  };
+}
+
 export default defineConfig({
   base: basePath,
   plugins: [
@@ -198,6 +227,7 @@ export default defineConfig({
     githubProxyPlugin(),
     leetcodeProxyPlugin(),
     resumeScannerPlugin(),
+    prerenderPagesPlugin(),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [
