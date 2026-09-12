@@ -10,4 +10,4 @@ Allow: /favicon-48x48.png
 Allow: /favicon-96x96.png
 Allow: /favicon.svg
 
-Sitemap: https://rathodram.vercel.app/sitemap.xml
+Sitemap: https://rathodram.pages.dev/sitemap.xml

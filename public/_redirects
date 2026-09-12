@@ -1,0 +1,4 @@
+# Cloudflare Pages Redirects & Rewrites
+/resume /resume/Resume_v4.pdf 302
+/projects /projects/index.html 200
+/* /index.html 200

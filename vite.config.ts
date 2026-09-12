@@ -205,8 +205,8 @@ function prerenderPagesPlugin(): Plugin {
 
       const projectsHtml = indexHtml
         .replace(/<title>.*?<\/title>/, "<title>All Projects - Rathod Ramraj</title>")
-        .replace(/<link rel="canonical" href=".*?" \/>/, '<link rel="canonical" href="https://rathodram.vercel.app/projects" />')
-        .replace(/<meta property="og:url" content=".*?" \/>/, '<meta property="og:url" content="https://rathodram.vercel.app/projects" />')
+        .replace(/<link rel="canonical" href=".*?" \/>/, '<link rel="canonical" href="https://rathodram.pages.dev/projects" />')
+        .replace(/<meta property="og:url" content=".*?" \/>/, '<meta property="og:url" content="https://rathodram.pages.dev/projects" />')
         .replace(/<meta name="description"\s+content=".*?" \/>/s, '<meta name="description" content="Complete archive of Rathod Ramraj\'s GitHub repositories - full-stack, backend, database systems, and AI-powered web applications." />')
         .replace(/<meta property="og:title" content=".*?" \/>/, '<meta property="og:title" content="All Projects - Rathod Ramraj" />')
         .replace(/<meta name="twitter:title" content=".*?" \/>/, '<meta name="twitter:title" content="All Projects - Rathod Ramraj" />')

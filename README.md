@@ -1,6 +1,6 @@
 # Rathod Ramraj - Portfolio
 
-Cinematic personal portfolio. Vite + React + TypeScript SPA, deployed at [rathodram.vercel.app](https://rathodram.vercel.app) & [rathodram.vercel.app](https://rathodram.vercel.app).
+Cinematic personal portfolio. Vite + React + TypeScript SPA, deployed at [rathodram.pages.dev](https://rathodram.pages.dev).
 
 ## Preview
 
@@ -49,7 +49,7 @@ vite.config.ts               # also hosts the dev-time GitHub proxy
 
 ## Notes
 
-- Domain SEO is configured against `https://rathodram.vercel.app`.
+- Domain SEO is configured against `https://rathodram.pages.dev`.
 
 ## License
 
