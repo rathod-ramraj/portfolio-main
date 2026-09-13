@@ -11,3 +11,4 @@ Allow: /favicon-96x96.png
 Allow: /favicon.svg
 
 Sitemap: https://rathodram.pages.dev/sitemap.xml
+Sitemap: https://rathodram.pages.dev/sitemap.txt
