@@ -24,28 +24,21 @@ const MINI_MARQUEE = [
 const TONE_CYCLE = ["cyan", "red", "gold", "violet", "steel"] as const;
 
 const TERMINAL_LINES = [
-  "> whoami",
+  "whoami",
   "Rathod Ramraj",
-  "",
-  "> education",
+  "education",
   "B.Tech Information Technology @ NIT Jalandhar",
-  "",
-  "> role",
+  "role",
   "Full Stack Developer",
-  "",
-  "> currently",
-  "Building AI-powered web applications",
-  "",
-  "> stack",
+  "currently",
+  "Building modern full-stack web applications",
+  "stack",
   "React • Next.js • Node.js • MongoDB",
-  "",
-  "> hobbies",
+  "hobbies",
   "Coding • Open Source • Hackathons",
-  "",
-  "> mission",
+  "mission",
   "Build scalable products that solve real-world problems.",
-  "",
-  "> status",
+  "status",
   "Available for internships & collaborations."
 ];
 
@@ -551,11 +544,14 @@ function Terminal() {
     <div ref={ref} className="pf-terminal-panel" data-reveal="true">
       <div className="pf-terminal-topline">
         <Code size={16} aria-hidden="true" />
-        <span>RAMRAJ_CONSOLE</span>
+        <span>TERMINAL / RATHOD RAMRAJ</span>
       </div>
       <div className="pf-terminal-lines">
         {TERMINAL_LINES.map((line, i) => (
-          <span key={i} className={`pf-terminal-line${revealed[i] ? " is-visible" : ""}`}>
+          <span
+            key={i}
+            className={`pf-terminal-line${revealed[i] ? " is-visible" : ""}${i % 2 === 0 ? " is-command" : " is-output"}`}
+          >
             {line}
           </span>
         ))}
@@ -1061,7 +1057,7 @@ export function Portfolio() {
           publicRepos: user.public_repos,
         }));
       })
-      .catch(() => {});
+      .catch(() => { });
 
     fetch(`/api/gh/users/${GH_USER}/repos?per_page=100&sort=updated`)
       .then((r) => (r.ok ? r.json() : null))
@@ -1075,7 +1071,7 @@ export function Portfolio() {
           }));
         }
       })
-      .catch(() => {});
+      .catch(() => { });
 
     return () => { active = false; };
   }, []);
